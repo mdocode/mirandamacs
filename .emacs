@@ -117,3 +117,5 @@
    '("melpa" . "http://melpa.org/packages/")
    t)
   (package-initialize))
+
+(add-hook 'ruby-mode-hook 'robe-mode)
