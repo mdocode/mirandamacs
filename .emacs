@@ -5,8 +5,11 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(dirtrack-list (quote (":\\(.*\\)[$#] " 1)))
+ '(js-indent-level 2)
  '(show-paren-mode t)
- '(sql-mysql-options (quote ("-A" "--default-character-set=utf8" "-C" "-t" "-f" "-n"))))
+ '(sql-mysql-options
+   (quote
+    ("-A" "--default-character-set=utf8" "-C" "-t" "-f" "-n"))))
 
 (setq visual-line-mode t)
 (setq x-select-enable-clipboard t)
@@ -119,3 +122,11 @@
   (package-initialize))
 
 (add-hook 'ruby-mode-hook 'robe-mode)
+
+(add-to-list 'auto-mode-alist '("\\.js.jsx$" . js-mode))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
