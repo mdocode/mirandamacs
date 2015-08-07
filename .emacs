@@ -11,9 +11,20 @@
    (quote
     ("-A" "--default-character-set=utf8" "-C" "-t" "-f" "-n"))))
 
+;; Spaces, no tabs.
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq c-basic-offset 4)
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
 (setq visual-line-mode t)
 (setq x-select-enable-clipboard t)
-(delete-selection-mode 1)
 
 ;; Right-click shows functions in current module
 (global-set-key [mouse-3] 'imenu)
@@ -26,8 +37,6 @@
 (global-set-key [\C-f5] 'linum-mode)
 (global-linum-mode 1)
 
-;;Column Numbering
-(column-number-mode 1)
 
 ;; Frame title bar formatting to show full path of file, also, top-hat man.
 (setq-default
@@ -90,14 +99,6 @@
   (interactive)
   (mapc 'kill-buffer (delq (current-buffer) (buffer-list))))
 
-;; save the buffers, their file names, major modes, buffer positions, and so on
-(desktop-save-mode 1)
-
-;; Spaces, no tabs.
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq c-basic-offset 4)
-
 ;; compare-windows ignore whitespace
 (setq compare-ignore-whitespace 1)
 
@@ -113,6 +114,16 @@
 
 (put 'downcase-region 'disabled nil)
 
+;;default modes
+(electric-pair-mode 1)
+(nyan-mode 1)
+(delete-selection-mode 1)
+;; save the buffers, their file names, major modes, buffer positions, and so on
+(desktop-save-mode 1)
+;;Column Numbering
+(column-number-mode 1)
+
+
 (when (>= emacs-major-version 24)
   (require 'package)
   (add-to-list
@@ -122,11 +133,4 @@
   (package-initialize))
 
 (add-hook 'ruby-mode-hook 'robe-mode)
-
 (add-to-list 'auto-mode-alist '("\\.js.jsx$" . js-mode))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
