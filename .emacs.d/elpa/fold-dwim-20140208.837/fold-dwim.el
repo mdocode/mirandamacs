@@ -4,6 +4,7 @@
 ;;
 ;; Author: Peter Heslin <p.j.heslin@dur.ac.uk>
 ;; URL: http://www.dur.ac.uk/p.j.heslin/Software/Emacs
+;; Package-Version: 20140208.837
 ;; Version: 1.2
 ;;
 ;; This program is free software; you can redistribute it and/or modify

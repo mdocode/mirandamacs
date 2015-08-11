@@ -1,0 +1,74 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Tue Aug 11 12:28:05 2015
+;; Desktop file format version 206
+;; Emacs version 24.5.1
+
+;; Global section:
+(setq desktop-saved-frameset [frameset 1 (21962 8853 541545 418000) (desktop . "206") "mdobbs@mdobbs-LENOVO-IDEAPAD-Y470" nil nil ((((font-backend xft x) (font . "-unknown-Ubuntu Mono-normal-normal-normal-*-17-*-*-*-m-0-iso10646-1") (font-parameter . "Ubuntu Mono 13") (border-width . 0) (internal-border-width . 0) (right-divider-width . 0) (bottom-divider-width . 0) (vertical-scroll-bars . right) (foreground-color . "black") (background-color . "white") (mouse-color . "black") (border-color . "black") (screen-gamma) (line-spacing) (left-fringe . 9) (right-fringe . 9) (scroll-bar-foreground) (scroll-bar-background . "grey75") (menu-bar-lines . 1) (tool-bar-lines . 1) (title) (wait-for-wm . t) (fullscreen . maximized) (tool-bar-position . top) (icon-type . t) (auto-raise) (auto-lower) (cursor-type . box) (scroll-bar-width . 14) (alpha) (horizontal-scroll-bars . t) (display-type . color) (background-mode . light) (cursor-color . "black") (sticky) (environment) (frameset--id . "E268-9FEF-D720-01F2") (frameset--mini t . t) (modeline . t) (minibuffer . t) (unsplittable) (icon-name) (visibility . t) (display . ":0") (explicit-name) (height . 35) (width . 141) (left . 65) (top . 24)) ((min-height . 4) (min-width . 10) (min-height-ignore . 2) (min-width-ignore . 6) (min-height-safe . 1) (min-width-safe . 2) (min-pixel-height . 76) (min-pixel-width . 90) (min-pixel-height-ignore . 38) (min-pixel-width-ignore . 54) (min-pixel-height-safe . 19) (min-pixel-width-safe . 18)) leaf (pixel-width . 1301) (pixel-height . 662) (total-width . 144) (total-height . 34) (normal-height . 1.0) (normal-width . 1.0) (buffer ".gitignore" (selected . t) (hscroll . 0) (fringes 9 9 nil) (margins 2) (scroll-bars 14 2 t nil) (vscroll . 0) (dedicated) (point . 145) (start . 1))))])
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring '("outline" "fold-" "fold-dwim" "fold "))
+(setq regexp-search-ring nil)
+(setq register-alist nil)
+(setq file-name-history '("/home/mdobbs/mirandamacs/.gitignore" "/home/mdobbs/121nexus/catscan-api/test/controllers/auth_controller_test.rb" "/home/mdobbs/121nexus/catscan-web-client/app/assets/javascripts/landing_page/components/view_modules/ImageUpload_view.js.jsx" "/home/mdobbs/121nexus/catscan-web-client/app/assets/javascripts/landing_page/components/view_actions.js.jsx" "/home/mdobbs/.emacs"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/home/mdobbs/mirandamacs/.gitignore"
+  ".gitignore"
+  'fundamental-mode
+  '(linum-mode)
+  145
+  '(1 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . utf-8-unix)))
+
+(desktop-create-buffer 206
+  "/home/mdobbs/mirandamacs/.emacs"
+  ".emacs"
+  'emacs-lisp-mode
+  '(visual-line-mode linum-mode)
+  1
+  '(4241 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/mdobbs/121nexus/catscan-api/test/controllers/auth_controller_test.rb"
+  "auth_controller_test.rb"
+  'ruby-mode
+  '(linum-mode inf-ruby-minor-mode eldoc-mode robe-mode hs-minor-mode)
+  124
+  '(nil nil)
+  nil
+  nil
+  '((indent-tabs-mode) (buffer-file-coding-system . undecided-unix)))
+
+(desktop-create-buffer 206
+  "/home/mdobbs/121nexus/catscan-web-client/app/assets/javascripts/landing_page/components/view_modules/ImageUpload_view.js.jsx"
+  "ImageUpload_view.js.jsx"
+  'js-mode
+  '(linum-mode hs-minor-mode)
+  160
+  '(1246 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-dos)))
+
+(desktop-create-buffer 206
+  "/home/mdobbs/121nexus/catscan-web-client/app/assets/javascripts/landing_page/components/view_actions.js.jsx"
+  "view_actions.js.jsx"
+  'js-mode
+  '(linum-mode)
+  124
+  '(nil nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix)))
+

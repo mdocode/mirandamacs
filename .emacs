@@ -1,4 +1,4 @@
-(add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/.emacs.d/lisp")
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -102,11 +102,6 @@
 ;; compare-windows ignore whitespace
 (setq compare-ignore-whitespace 1)
 
-(require 'fold-dwim)
-(global-set-key (kbd "<f7>")      'fold-dwim-toggle)
-(global-set-key (kbd "<M-f7>")    'fold-dwim-hide-all)
-(global-set-key (kbd "<S-M-f7>")  'fold-dwim-show-all)
-
 (setq tramp-verbose 5)
 
 (add-to-list 'load-path "~/.emacs.d/nyan-mode-master")
@@ -134,3 +129,22 @@
 
 (add-hook 'ruby-mode-hook 'robe-mode)
 (add-to-list 'auto-mode-alist '("\\.js.jsx$" . js-mode))
+
+;; code folding
+(require 'fold-dwim)
+(global-set-key (kbd "<f7>")      'fold-dwim-toggle)
+(global-set-key (kbd "<M-f7>")    'fold-dwim-hide-all)
+(global-set-key (kbd "<S-M-f7>")  'fold-dwim-show-all)
+;; use hs-minor-mode in all programming modes
+(add-hook 'prog-mode-hook #'hs-minor-mode)
+;; add ruby support
+(eval-after-load "hideshow"
+  '(add-to-list 'hs-special-modes-alist
+    `(ruby-mode
+      ,(rx (or "def" "class" "module" "do" "{" "[")) ; Block start
+      ,(rx (or "}" "]" "end"))                       ; Block end
+      ,(rx (or "#" "=begin"))                        ; Comment start
+      ruby-forward-sexp nil)))
+
+
+(require 'helm-config)
