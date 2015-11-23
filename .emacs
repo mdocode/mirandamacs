@@ -128,7 +128,13 @@
   (package-initialize))
 
 (add-hook 'ruby-mode-hook 'robe-mode)
+(require 'rvm)
+(rvm-use-default)
+
 (add-to-list 'auto-mode-alist '("\\.js.jsx$" . js-mode))
+
+(add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
+(setq css-indent-offset 2)
 
 ;; code folding
 (require 'fold-dwim)
@@ -148,3 +154,12 @@
 
 
 (require 'helm-config)
+(setq org-mobile-directory "~/MobileOrg")
+(setq org-directory "~/notes")
+(setq org-mobile-files '("~/notes/doujinshi.org"))
+(setq org-mobile-inbox-for-pull "~/notes/from_mobile.org")
+
+;; yaml-mode indent on newline
+(add-hook 'yaml-mode-hook
+          '(lambda ()
+             (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
