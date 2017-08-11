@@ -6,6 +6,7 @@
  ;; If there is more than one, they won't work right.
  '(dirtrack-list (quote (":\\(.*\\)[$#] " 1)))
  '(js-indent-level 2)
+ '(markdown-command "pandoc")
  '(show-paren-mode t)
  '(sql-mysql-options
    (quote
@@ -22,6 +23,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+(set-face-attribute 'default nil :font "Latin Modern Mono" :height 90)
 
 (setq visual-line-mode t)
 (setq x-select-enable-clipboard t)
@@ -62,7 +64,7 @@
 (setq ido-enable-flex-matching t)
 (setq ido-default-buffer-method 'selected-window)
 
-;; open recently closed files 
+;; open recently closed files
 ;; from http://stackoverflow.com/questions/2227401/how-to-get-a-list-of-last-closed-files-in-emacs
 
 (defvar closed-files (list))
@@ -107,7 +109,13 @@
 (add-to-list 'load-path "~/.emacs.d/nyan-mode-master")
 (require 'nyan-mode)
 
+(add-to-list 'load-path "~/.emacs.d/fireplace")
+(require 'fireplace)
+
 (put 'downcase-region 'disabled nil)
+
+(require 're-builder)
+(setq reb-re-syntax 'string)
 
 ;;default modes
 (electric-pair-mode 1)
@@ -136,6 +144,8 @@
 (add-to-list 'auto-mode-alist '("\\.scss$" . css-mode))
 (setq css-indent-offset 2)
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 ;; code folding
 (require 'fold-dwim)
 (global-set-key (kbd "<f7>")      'fold-dwim-toggle)
@@ -163,3 +173,52 @@
 (add-hook 'yaml-mode-hook
           '(lambda ()
              (define-key yaml-mode-map "\C-m" 'newline-and-indent)))
+
+(global-set-key (kbd "C-x g") 'magit-status)
+
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "C-x SPC") 'ace-jump-mode-pop-mark)
+(put 'upcase-region 'disabled nil)
+
+(require 'web-mode)
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+
+(defun my-web-mode-hook ()
+  "Hooks for Web mode."
+  (setq web-mode-markup-indent-offset 2)
+  (setq web-mode-code-indent-offset 2)
+  (set-face-attribute 'web-mode-html-tag-face nil :foreground "dark green")
+  (set-face-background 'web-mode-current-element-highlight-face "gray84")
+  (setq web-mode-enable-auto-quoting nil)
+)
+(add-hook 'web-mode-hook  'my-web-mode-hook)
+
+;; http://emacs.stackexchange.com/a/26279
+(defun delete-file-visited-by-buffer (buffername)
+  "Delete the file visited by the buffer named BUFFERNAME."
+  (interactive "b")
+  (let* ((buffer (get-buffer buffername))
+         (filename (buffer-file-name buffer)))
+    (when filename
+      (delete-file filename)
+      (kill-buffer-ask buffer))))
